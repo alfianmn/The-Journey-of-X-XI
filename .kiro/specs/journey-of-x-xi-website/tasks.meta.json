@@ -1,0 +1,696 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Buat file `index.html` dengan struktur HTML5 lengkap: `<!DOCTYPE html>`, `<html lang=\"id\">`, `<head>` (charset, viewport, title, description), dan `<body>`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814859194
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814876499
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814922543
+      }
+    ],
+    "2.1 Implementasikan `<nav>` sticky dengan Tailwind (`sticky top-0 z-50`) beserta logo/title dan nav links": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814859633
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814931653
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814980714
+      }
+    ],
+    "2.2 Implementasikan hamburger button dan toggle menu vertikal untuk layar < 640px": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814860127
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815009320
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815103205
+      }
+    ],
+    "3.1 Buat `<section id=\"hero\">` dengan `<h1>`, `<p>` tagline, dan dua CTA button": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814860368
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815009635
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815104156
+      }
+    ],
+    "3.2 Implementasikan fungsi `scrollKeSection(sectionId)` di blok `<script>` dan hubungkan ke kedua CTA button": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814860978
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815109110
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815173793
+      }
+    ],
+    "4.1 Buat `<section id=\"wali-kelas\">` dengan grid 2-kolom (≥768px) / 1-kolom (<768px) dan dua `Teacher_Profile_Card`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814861569
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815109827
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815175093
+      }
+    ],
+    "4.2 Implementasikan avatar fallback hierarchy di HTML (onerror handler inline) dan fungsi `gantiPlaceholder`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814861886
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815180360
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815619257
+      }
+    ],
+    "5. Checkpoint — pastikan scaffold, nav, hero, dan wali kelas ter-render dengan benar": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814862120
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815709287
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815723364
+      }
+    ],
+    "6.1 Deklarasikan `const studentsData = [...]` dengan tepat 33 elemen placeholder di blok `<script>`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814862241
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815181211
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815619788
+      }
+    ],
+    "6.2 Implementasikan fungsi `validasiDataSiswa(data)` dan panggil saat `DOMContentLoaded`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814862367
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815630645
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815681432
+      }
+    ],
+    "6.4 Implementasikan fungsi `potongKutipan(teks, maks)` yang memotong string menjadi ≤ `maks` karakter dan menambahkan `…` jika terpotong": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814862631
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815631552
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815682631
+      }
+    ],
+    "6.6 Implementasikan fungsi `ambilInisial(namaLengkap)` yang mengekstrak hingga 2 inisial huruf kapital, fallback `\"?\"` untuk nama kosong": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814862755
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815632051
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815683435
+      }
+    ],
+    "6.7 Implementasikan fungsi `renderStudents(students)` yang membuat HTML string untuk setiap Student_Card dan meng-inject ke `#student-grid`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814862884
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815710003
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816090557
+      }
+    ],
+    "7.1 Tambahkan HTML `<section id=\"direktori\">` berisi `<input id=\"search-bar\" type=\"text\" placeholder=\"Cari nama siswa...\">` dan `<div id=\"student-grid\">` dengan CSS Grid responsif (1/2/3/4 kolom sesuai breakpoint)": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814863076
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815711814
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816091611
+      }
+    ],
+    "7.2 Implementasikan fungsi `filterStudents(students, query)` yang mengembalikan subset array berdasarkan `namaLengkap` atau `namaPanggilan` (case-insensitive)": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814863345
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816130103
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816301821
+      }
+    ],
+    "7.5 Implementasikan fungsi `setupSearch()` yang memasang event listener `'input'` pada `#search-bar`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814863650
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816340098
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816723209
+      }
+    ],
+    "8.1 Buat `<section id=\"kelas-10\">` dan `<section id=\"kelas-11\">` masing-masing berisi `#tab-system` dengan dua tombol tab dan dua panel konten": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814863802
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816130552
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816303379
+      }
+    ],
+    "8.2 Implementasikan fungsi `setupTabs()` di blok `<script>`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814863932
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816340564
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816724025
+      }
+    ],
+    "9. Checkpoint — pastikan direktori siswa dan tab system berfungsi": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864086
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816732315
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816739266
+      }
+    ],
+    "10.1 Buat `<section id=\"galeri\">` dengan navigasi dua album (tab/button) dan dua panel foto grid": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864214
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816739576
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817122322
+      }
+    ],
+    "10.2 Tambahkan CSS hover effects di blok `<style>` untuk `.foto-item` dan `.overlay`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864338
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817128119
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817197008
+      }
+    ],
+    "10.3 Implementasikan fungsi `setupGallery()` untuk toggle antar album": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864603
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817128617
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817196035
+      }
+    ],
+    "11.1 Buat HTML elemen modal di bawah `<section id=\"galeri\">` sebelum `<footer>`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864723
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817128935
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817197877
+      }
+    ],
+    "11.2 Implementasikan fungsi `openModal(src, alt)` di blok `<script>`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864858
+      },
+      {
+        "executionId": "eb70c45a-56eb-4230-b009-4fb5843d3d78",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789819336863
+      },
+      {
+        "executionId": "eb70c45a-56eb-4230-b009-4fb5843d3d78",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789819393028
+      }
+    ],
+    "11.3 Implementasikan fungsi `tutupModal()` di blok `<script>`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814864991
+      },
+      {
+        "executionId": "eb70c45a-56eb-4230-b009-4fb5843d3d78",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789819337109
+      },
+      {
+        "executionId": "eb70c45a-56eb-4230-b009-4fb5843d3d78",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789819393257
+      }
+    ],
+    "11.4 Implementasikan fungsi `setupModal()` yang memasang semua event listener modal": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814865123
+      },
+      {
+        "executionId": "eb70c45a-56eb-4230-b009-4fb5843d3d78",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789819431297
+      }
+    ],
+    "12.1 Buat `<footer>` berisi teks hak cipta dan identitas kelas": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814865368
+      },
+      {
+        "executionId": "eb70c45a-56eb-4230-b009-4fb5843d3d78",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789819431604
+      }
+    ],
+    "13.1 Tambahkan blok `document.addEventListener('DOMContentLoaded', () => { ... })` di akhir blok `<script>` yang memanggil semua fungsi setup secara berurutan": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814865611
+      }
+    ],
+    "14. Checkpoint akhir — verifikasi lengkap semua fitur": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814865813
+      }
+    ],
+    "15.1 Buat file `__tests__/helpers.js` yang mengekstrak semua fungsi pure JavaScript dari `index.html` ke modul yang dapat di-import oleh test runner": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814866304
+      }
+    ],
+    "15.2 Buat file `__tests__/properties.test.js` dengan semua 10 property-based test menggunakan fast-check": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814866420
+      }
+    ],
+    "15.3 Buat file `__tests__/functions.test.js` dengan unit tests": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814866568
+      }
+    ],
+    "15.4 Buat file `package.json` di root dengan konfigurasi minimal untuk menjalankan test": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814866686
+      }
+    ],
+    "1. Scaffold file `index.html` — boilerplate, Tailwind CDN, blok CSS kustom, blok script": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814922806
+      }
+    ],
+    "1.2 Tulis unit test: verifikasi struktur scaffold": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789814999094
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815003914
+      }
+    ],
+    "2. Sticky navigation dengan mobile hamburger menu": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815103674
+      }
+    ],
+    "3. Hero section — judul, tagline, CTA buttons dengan smooth scroll": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815174179
+      }
+    ],
+    "4. Teacher profile cards — dua kartu berdampingan dengan avatar fallback": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815619513
+      }
+    ],
+    "4.3 Tulis property test untuk `gantiPlaceholder` / `ambilInisial`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815699199
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789815703768
+      }
+    ],
+    "6. Student directory — `studentsData` array, `renderStudents`, dan `gantiPlaceholder` untuk siswa": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816090896
+      }
+    ],
+    "6.3 Tulis property test untuk `validasiDataSiswa`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816112652
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816118411
+      }
+    ],
+    "6.5 Tulis property test untuk `potongKutipan`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816113070
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816119099
+      }
+    ],
+    "6.8 Tulis property test untuk `renderStudents`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816320672
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816331512
+      }
+    ],
+    "6.9 Tulis property test untuk fidelitas data Student_Card": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816321731
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816333072
+      }
+    ],
+    "6.10 Tulis property test untuk no-match search message": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816322405
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816333630
+      }
+    ],
+    "6.11 Tulis property test untuk uniqueness dan urutan `studentsData`": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816323320
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816333948
+      }
+    ],
+    "7.3 Tulis property test untuk `filterStudents` — search filter inclusivity": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816323816
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816334163
+      }
+    ],
+    "7.4 Tulis property test untuk `filterStudents` — empty/whitespace restores full list": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816324794
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816334407
+      }
+    ],
+    "7. Buat `<section id=\"direktori\">` dengan Search_Bar dan `#student-grid`, lalu hubungkan ke render": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816723402
+      }
+    ],
+    "8. Tab system — `setupTabs` untuk Kelas 10 / Kelas 11": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816724180
+      }
+    ],
+    "8.3 Tulis property test untuk tab state exclusivity": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816731358
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816738316
+      }
+    ],
+    "8.4 Tulis property test untuk tab idempotence": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816731555
+      },
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789816738571
+      }
+    ],
+    "10. Gallery section — dua album, hover effects, placeholder foto": [
+      {
+        "executionId": "8224a4dd-c95e-4de0-bcb0-b1c1d38da180",
+        "chatSessionId": "sess_20a32a48-e231-4006-9cb2-1cd6d061ea36",
+        "timestamp": 1789817197144
+      }
+    ]
+  }
+}

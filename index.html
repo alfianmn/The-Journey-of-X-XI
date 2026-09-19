@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website jurnal digital kelas MPLB yang merekam perjalanan bersama dari Kelas 10 hingga Kelas 11 — memuat profil 33 siswa, profil wali kelas, galeri kenangan, jadwal, dan struktur organisasi kelas.">
+  <title>The Journey of X & XI MPLB</title>
+
+  <!-- Tailwind CSS via CDN — satu-satunya dependensi eksternal -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* =====================================================
+       CSS KUSTOM
+       Blok ini digunakan untuk efek yang tidak tersedia
+       melalui Tailwind utility classes:
+       - Scrollbar custom styling
+       - Keyframe animasi modal (fade-in / fade-out)
+       - Gallery hover overlay & image scale
+       - CSS custom properties (tema warna)
+    ===================================================== */
+
+    /* Hero background: linear gradient dari Kelas_10_Theme (teal/slate)
+       ke Kelas_11_Theme (indigo/purple) */
+    .hero-bg {
+      background: linear-gradient(135deg, #0f766e 0%, #334155 40%, #4338ca 70%, #7c3aed 100%);
+    }
+
+    /* Foto placeholder: ditampilkan saat foto gagal dimuat atau src kosong.
+       Ukuran sama dengan foto wali kelas (w-28 h-28 = 112px), berbentuk lingkaran,
+       teks inisial di tengah, latar belakang netral */
+    .foto-placeholder {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background-color: #cbd5e1; /* slate-300 */
+      color: #475569;            /* slate-600 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Galeri hover effects */
+    .foto-item .overlay {
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    .foto-item:hover .overlay {
+      opacity: 1;
+    }
+    .foto-item img {
+      transition: transform 300ms ease;
+    }
+    .foto-item:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGASI: ganti teks logo dan href jika perlu -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo / Title -->
+        <a href="#" class="text-lg font-bold text-teal-700 hover:text-indigo-700 transition-colors duration-200 shrink-0">
+          The Journey of X &amp; XI MPLB
+        </a>
+
+        <!-- Nav links — desktop (tersembunyi di mobile, ditampilkan ≥ 640px) -->
+        <ul id="nav-menu" class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
+          <li><a href="#wali-kelas" class="hover:text-teal-700 transition-colors duration-200">Wali Kelas</a></li>
+          <li><a href="#direktori" class="hover:text-teal-700 transition-colors duration-200">Direktori</a></li>
+          <li><a href="#kelas-10" class="hover:text-teal-700 transition-colors duration-200">Kelas 10</a></li>
+          <li><a href="#kelas-11" class="hover:text-indigo-700 transition-colors duration-200">Kelas 11</a></li>
+          <li><a href="#galeri" class="hover:text-teal-700 transition-colors duration-200">Galeri</a></li>
+        </ul>
+
+        <!-- Hamburger button — akan diimplementasikan di task 2.2 -->
+        <button id="tombol-hamburger" type="button" aria-label="Buka menu navigasi" class="sm:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md text-slate-600 hover:bg-slate-100 transition-colors duration-200">
+          <span class="block w-5 h-0.5 bg-current mb-1"></span>
+          <span class="block w-5 h-0.5 bg-current mb-1"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+        </button>
+
+      </div>
+
+      <!-- Mobile menu — toggle diimplementasikan di task 2.2 -->
+      <ul id="nav-menu-mobile" class="hidden sm:hidden flex-col gap-2 pb-4 text-sm font-medium text-slate-600">
+        <li><a href="#wali-kelas" class="block py-2 px-2 rounded hover:bg-slate-100 hover:text-teal-700 transition-colors duration-200">Wali Kelas</a></li>
+        <li><a href="#direktori" class="block py-2 px-2 rounded hover:bg-slate-100 hover:text-teal-700 transition-colors duration-200">Direktori</a></li>
+        <li><a href="#kelas-10" class="block py-2 px-2 rounded hover:bg-slate-100 hover:text-teal-700 transition-colors duration-200">Kelas 10</a></li>
+        <li><a href="#kelas-11" class="block py-2 px-2 rounded hover:bg-slate-100 hover:text-indigo-700 transition-colors duration-200">Kelas 11</a></li>
+        <li><a href="#galeri" class="block py-2 px-2 rounded hover:bg-slate-100 hover:text-teal-700 transition-colors duration-200">Galeri</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO: ubah teks h1, tagline, dan warna gradient jika perlu -->
+  <section id="hero" class="hero-bg min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-16 sm:py-24">
+
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-6 leading-tight">
+      The Journey of X &amp; XI MPLB
+    </h1>
+
+    <p class="max-w-2xl text-base sm:text-lg text-white/90 leading-relaxed mb-10">
+      Berawal dari orang asing yang malu-malu di bangku Kelas 10, kini kita tumbuh bersama menjadi sebuah keluarga di Kelas 11. Ini adalah ruang digital tempat setiap tawa, cerita, dan ambisi kita terekam abadi.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <!-- Tombol CTA akan dihubungkan ke scrollKeSection di task 3.2 -->
+      <button
+        id="btn-kelas-10"
+        type="button"
+        class="px-6 py-3 rounded-lg font-semibold text-teal-800 bg-white hover:bg-teal-50 shadow-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal-700"
+      >
+        Lihat Kenangan Kelas 10
+      </button>
+      <button
+        id="btn-kelas-11"
+        type="button"
+        class="px-6 py-3 rounded-lg font-semibold text-indigo-800 bg-white hover:bg-indigo-50 shadow-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700"
+      >
+        Lihat Aktivitas Kelas 11
+      </button>
+    </div>
+
+  </section>
+
+  <!-- WALI KELAS: ganti src foto, nama, dan pesan di masing-masing kartu -->
+  <section id="wali-kelas" class="py-12 sm:py-16 px-4 bg-slate-50">
+    <div class="max-w-5xl mx-auto">
+
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-700 mb-10">
+        Wali Kelas Kami
+      </h2>
+
+      <!-- Grid 1 kolom di < 768px, 2 kolom di ≥ 768px -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Kartu Wali Kelas 10 — tema teal -->
+        <div class="flex flex-col items-center text-center bg-white rounded-2xl shadow-md border border-teal-300 p-8">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-4">Wali Kelas 10</span>
+          <img
+            src="img/wali-kelas-10.jpg"
+            alt="Foto Wali Kelas 10"
+            class="w-28 h-28 rounded-full object-cover border-4 border-teal-300 mb-5"
+            onerror="gantiPlaceholder(this, 'Nama Wali Kelas 10')"
+          >
+          <!-- Ganti teks di bawah dengan nama lengkap wali kelas 10 (maks 60 karakter) -->
+          <h3 class="text-lg font-semibold text-teal-700 mb-2">Nama Wali Kelas 10</h3>
+          <!-- Ganti teks di bawah dengan pesan singkat dari wali kelas 10 (maks 150 karakter) -->
+          <p class="text-sm text-slate-500 leading-relaxed">
+            "Pesan singkat dari wali kelas 10 akan ditampilkan di sini. Ganti teks ini dengan pesan nyata."
+          </p>
+        </div>
+
+        <!-- Kartu Wali Kelas 11 — tema indigo -->
+        <div class="flex flex-col items-center text-center bg-white rounded-2xl shadow-md border border-indigo-300 p-8">
+          <span class="text-xs font-semibold tracking-widest uppercase text-indigo-600 mb-4">Wali Kelas 11</span>
+          <img
+            src="img/wali-kelas-11.jpg"
+            alt="Foto Wali Kelas 11"
+            class="w-28 h-28 rounded-full object-cover border-4 border-indigo-300 mb-5"
+            onerror="gantiPlaceholder(this, 'Nama Wali Kelas 11')"
+          >
+          <!-- Ganti teks di bawah dengan nama lengkap wali kelas 11 (maks 60 karakter) -->
+          <h3 class="text-lg font-semibold text-indigo-700 mb-2">Nama Wali Kelas 11</h3>
+          <!-- Ganti teks di bawah dengan pesan singkat dari wali kelas 11 (maks 150 karakter) -->
+          <p class="text-sm text-slate-500 leading-relaxed">
+            "Pesan singkat dari wali kelas 11 akan ditampilkan di sini. Ganti teks ini dengan pesan nyata."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIREKTORI SISWA: data kartu siswa dirender otomatis dari array studentsData di blok script -->
+  <section id="direktori" class="py-12 sm:py-16 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-700 mb-8">Direktori Siswa</h2>
+
+      <!-- Search bar -->
+      <div class="mb-8 max-w-md mx-auto">
+        <input
+          id="search-bar"
+          type="text"
+          placeholder="Cari nama siswa..."
+          class="w-full px-4 py-3 rounded-xl border border-slate-200 shadow-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-shadow duration-200"
+        >
+      </div>
+
+      <!-- Student grid — diisi oleh renderStudents() via JavaScript -->
+      <div
+        id="student-grid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      ></div>
+    </div>
+  </section>
+
+  <!-- TAB INFORMASI KELAS: ganti konten placeholder di dalam panel-kelas-10 dan panel-kelas-11 -->
+  <section id="kelas-10" class="py-12 sm:py-16 px-4 bg-slate-50">
+
+    <!-- Anchor tersembunyi untuk nav link #kelas-11 agar bisa langsung scroll ke bagian Kelas 11 -->
+    <div id="kelas-11"></div>
+
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-700 mb-8">Informasi Kelas</h2>
+
+      <!-- Tab buttons — Kelas 10 aktif secara default, Kelas 11 tidak aktif -->
+      <div id="tab-system" class="mb-8">
+        <div class="flex border-b border-slate-200">
+          <button
+            data-tab="kelas-10"
+            class="tab-aktif px-6 py-3 text-sm font-semibold border-b-2 border-teal-500 text-teal-700 transition-colors duration-200"
+          >Kelas 10</button>
+          <button
+            data-tab="kelas-11"
+            class="px-6 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-indigo-600 transition-colors duration-200"
+          >Kelas 11</button>
+        </div>
+      </div>
+
+      <!-- Panel Kelas 10 (tampil secara default) -->
+      <div id="panel-kelas-10" class="tab-panel">
+
+        <!-- Jadwal Pelajaran Kelas 10 -->
+        <!-- Ganti konten tabel di bawah dengan jadwal pelajaran Kelas 10 yang sebenarnya -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-teal-700 mb-4">📚 Jadwal Pelajaran Kelas 10</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-teal-50">
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Hari</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Jam 1–2</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Jam 3–4</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Jam 5–6</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Jam 7–8</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Ganti setiap sel "Mata Pelajaran X" dengan nama mata pelajaran Kelas 10 yang sebenarnya -->
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Senin</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Selasa</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Rabu</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Kamis</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Jumat</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">–</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Jadwal Piket Kelas 10 -->
+        <!-- Ganti setiap "Nama Siswa X" dengan nama petugas piket Kelas 10 yang sebenarnya -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-teal-700 mb-4">🧹 Jadwal Piket Kelas 10</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-teal-50">
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Hari</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-teal-700">Petugas Piket</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Senin</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 1, Nama Siswa 2</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Selasa</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 3, Nama Siswa 4</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Rabu</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 5, Nama Siswa 6</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Kamis</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 7, Nama Siswa 8</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Jumat</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 9, Nama Siswa 10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Struktur Organisasi Kelas 10 -->
+        <!-- Ganti setiap "Nama Siswa" dengan nama pemegang jabatan Kelas 10 yang sebenarnya -->
+        <div>
+          <h3 class="text-lg font-semibold text-teal-700 mb-4">🏛️ Struktur Organisasi Kelas 10</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li class="flex gap-2"><span class="font-semibold text-teal-600 w-36 shrink-0">Ketua Kelas</span><span>: Nama Siswa</span></li>
+            <li class="flex gap-2"><span class="font-semibold text-teal-600 w-36 shrink-0">Wakil Ketua</span><span>: Nama Siswa</span></li>
+            <li class="flex gap-2"><span class="font-semibold text-teal-600 w-36 shrink-0">Sekretaris</span><span>: Nama Siswa</span></li>
+            <li class="flex gap-2"><span class="font-semibold text-teal-600 w-36 shrink-0">Bendahara</span><span>: Nama Siswa</span></li>
+          </ul>
+        </div>
+
+      </div><!-- /panel-kelas-10 -->
+
+      <!-- Panel Kelas 11 (tersembunyi secara default, ditampilkan saat tab Kelas 11 diklik) -->
+      <div id="panel-kelas-11" class="tab-panel hidden">
+
+        <!-- Jadwal Pelajaran Kelas 11 -->
+        <!-- Ganti konten tabel di bawah dengan jadwal pelajaran Kelas 11 yang sebenarnya -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-indigo-700 mb-4">📚 Jadwal Pelajaran Kelas 11</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-indigo-50">
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Hari</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Jam 1–2</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Jam 3–4</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Jam 5–6</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Jam 7–8</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Ganti setiap sel "Mata Pelajaran X" dengan nama mata pelajaran Kelas 11 yang sebenarnya -->
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Senin</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Selasa</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Rabu</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Kamis</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 4</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Jumat</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 1</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 2</td>
+                  <td class="border border-slate-200 px-3 py-2">Mata Pelajaran 3</td>
+                  <td class="border border-slate-200 px-3 py-2">–</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Jadwal Piket Kelas 11 -->
+        <!-- Ganti setiap "Nama Siswa X" dengan nama petugas piket Kelas 11 yang sebenarnya -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-indigo-700 mb-4">🧹 Jadwal Piket Kelas 11</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-indigo-50">
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Hari</th>
+                  <th class="border border-slate-200 px-3 py-2 text-left text-indigo-700">Petugas Piket</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Senin</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 1, Nama Siswa 2</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Selasa</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 3, Nama Siswa 4</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Rabu</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 5, Nama Siswa 6</td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="border border-slate-200 px-3 py-2">Kamis</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 7, Nama Siswa 8</td>
+                </tr>
+                <tr>
+                  <td class="border border-slate-200 px-3 py-2">Jumat</td>
+                  <td class="border border-slate-200 px-3 py-2">Nama Siswa 9, Nama Siswa 10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Struktur Organisasi Kelas 11 -->
+        <!-- Ganti setiap "Nama Siswa" dengan nama pemegang jabatan Kelas 11 yang sebenarnya -->
+        <div>
+          <h3 class="text-lg font-semibold text-indigo-700 mb-4">🏛️ Struktur Organisasi Kelas 11</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li class="flex gap-2"><span class="font-semibold text-indigo-600 w-36 shrink-0">Ketua Kelas</span><span>: Nama Siswa</span></li>
+            <li class="flex gap-2"><span class="font-semibold text-indigo-600 w-36 shrink-0">Wakil Ketua</span><span>: Nama Siswa</span></li>
+            <li class="flex gap-2"><span class="font-semibold text-indigo-600 w-36 shrink-0">Sekretaris</span><span>: Nama Siswa</span></li>
+            <li class="flex gap-2"><span class="font-semibold text-indigo-600 w-36 shrink-0">Bendahara</span><span>: Nama Siswa</span></li>
+          </ul>
+        </div>
+
+      </div><!-- /panel-kelas-11 -->
+
+    </div>
+  </section>
+
+  <!-- GALERI: ganti src dan alt pada setiap img placeholder di album-10 dan album-11 -->
+  <section id="galeri" class="py-12 sm:py-16 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-700 mb-8">Galeri Kenangan</h2>
+
+      <!-- Tombol navigasi album -->
+      <div class="flex justify-center gap-4 mb-8">
+        <button data-album="album-10" class="album-aktif px-5 py-2 rounded-lg text-sm font-semibold bg-teal-600 text-white transition-colors duration-200">Album Cerita Kelas 10</button>
+        <button data-album="album-11" class="px-5 py-2 rounded-lg text-sm font-semibold bg-slate-200 text-slate-600 hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-200">Album Cerita Kelas 11</button>
+      </div>
+
+      <!-- Panel Album Kelas 10 (tampil secara default) -->
+      <!-- Ganti src dan alt setiap foto di bawah dengan foto Kelas 10 yang sebenarnya -->
+      <div id="album-10" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-10-1.jpg" alt="Kenangan Kelas 10 - Foto 1" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 10 - Foto 1</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-10-2.jpg" alt="Kenangan Kelas 10 - Foto 2" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 10 - Foto 2</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-10-3.jpg" alt="Kenangan Kelas 10 - Foto 3" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 10 - Foto 3</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-10-4.jpg" alt="Kenangan Kelas 10 - Foto 4" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 10 - Foto 4</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-10-5.jpg" alt="Kenangan Kelas 10 - Foto 5" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 10 - Foto 5</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-10-6.jpg" alt="Kenangan Kelas 10 - Foto 6" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 10 - Foto 6</p></div>
+        </div>
+      </div>
+
+      <!-- Panel Album Kelas 11 (tersembunyi secara default) -->
+      <!-- Ganti src dan alt setiap foto di bawah dengan foto Kelas 11 yang sebenarnya -->
+      <div id="album-11" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-11-1.jpg" alt="Kenangan Kelas 11 - Foto 1" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 11 - Foto 1</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-11-2.jpg" alt="Kenangan Kelas 11 - Foto 2" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 11 - Foto 2</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-11-3.jpg" alt="Kenangan Kelas 11 - Foto 3" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 11 - Foto 3</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-11-4.jpg" alt="Kenangan Kelas 11 - Foto 4" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 11 - Foto 4</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-11-5.jpg" alt="Kenangan Kelas 11 - Foto 5" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 11 - Foto 5</p></div>
+        </div>
+        <div class="foto-item relative rounded-lg overflow-hidden cursor-pointer">
+          <img src="img/galeri-11-6.jpg" alt="Kenangan Kelas 11 - Foto 6" class="w-full h-48 object-cover">
+          <div class="overlay absolute inset-0 bg-black/50 flex items-end p-3"><p class="text-white text-sm">Kenangan Kelas 11 - Foto 6</p></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL: dikelola sepenuhnya oleh JavaScript; tidak perlu mengubah HTML ini -->
+  <div id="modal-overlay" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+    <div id="modal-container" class="relative max-w-[90vw] max-h-[90vh] flex flex-col items-center">
+
+      <!-- Tombol tutup modal — min 44×44px sesuai requirement aksesibilitas -->
+      <button
+        id="tombol-tutup"
+        type="button"
+        aria-label="Tutup modal"
+        class="absolute -top-10 right-0 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 text-white text-2xl font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
+      >×</button>
+
+      <!-- Gambar modal -->
+      <img
+        id="modal-gambar"
+        src=""
+        alt=""
+        class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+      >
+
+      <!-- Pesan error jika foto gagal dimuat -->
+      <p id="modal-pesan-error" class="hidden text-white text-center py-8 px-6 bg-slate-800/80 rounded-lg">
+        Foto tidak dapat ditampilkan.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Footer akan ditambahkan di sini -->
+<!-- FOOTER: ganti teks hak cipta dan identitas kelas sesuai ketentuan -->
+<footer class="py-4 text-center w-full">
+    <p>© 2026 The Journey of X & XI MPLB. Semua kenangan tersimpan di sini.</p>
+    <p style="font-size: 0.9rem; margin-top: 5px; color: #888;">Planned & Developed by <strong>Alfian Mahadika Nadhif</strong></p>
+</footer>
+
+
+  <script>
+    // =====================================================
+    // JAVASCRIPT
+    // Seluruh logika interaktivitas website ada di sini:
+    // - studentsData (array data 33 siswa)
+    // - Fungsi render, pencarian, tab, galeri, dan modal
+    // - Blok DOMContentLoaded sebagai entry point
+    // =====================================================
+
+    /* studentsData: Array 33 siswa. Ganti nilai placeholder di setiap elemen dengan data nyata. */
+    const studentsData = [
+      {
+        absen: 1,            // absen: nomor urut siswa (jangan diubah)
+        namaLengkap: "Siswa 1",   // namaLengkap: ganti dengan nama lengkap siswa (maks 100 karakter)
+        namaPanggilan: "Panggilan 1",  // namaPanggilan: ganti dengan nama panggilan siswa (maks 30 karakter)
+        fotoKelas10: "img/siswa-1-10.jpg",  // fotoKelas10: ganti dengan path/URL foto siswa saat Kelas 10 (maks 300 karakter)
+        fotoKelas11: "img/siswa-1-11.jpg",  // fotoKelas11: ganti dengan path/URL foto siswa saat Kelas 11 (maks 300 karakter)
+        kutipan: "Kutipan siswa ke-1."       // kutipan: ganti dengan kutipan favorit siswa (maks 300 karakter)
+      },
+      { absen: 2,  namaLengkap: "Siswa 2",  namaPanggilan: "Panggilan 2",  fotoKelas10: "img/siswa-2-10.jpg",  fotoKelas11: "img/siswa-2-11.jpg",  kutipan: "Kutipan siswa ke-2." },
+      { absen: 3,  namaLengkap: "Siswa 3",  namaPanggilan: "Panggilan 3",  fotoKelas10: "img/siswa-3-10.jpg",  fotoKelas11: "img/siswa-3-11.jpg",  kutipan: "Kutipan siswa ke-3." },
+      { absen: 4,  namaLengkap: "Siswa 4",  namaPanggilan: "Panggilan 4",  fotoKelas10: "img/siswa-4-10.jpg",  fotoKelas11: "img/siswa-4-11.jpg",  kutipan: "Kutipan siswa ke-4." },
+      { absen: 5,  namaLengkap: "Siswa 5",  namaPanggilan: "Panggilan 5",  fotoKelas10: "img/siswa-5-10.jpg",  fotoKelas11: "img/siswa-5-11.jpg",  kutipan: "Kutipan siswa ke-5." },
+      { absen: 6,  namaLengkap: "Siswa 6",  namaPanggilan: "Panggilan 6",  fotoKelas10: "img/siswa-6-10.jpg",  fotoKelas11: "img/siswa-6-11.jpg",  kutipan: "Kutipan siswa ke-6." },
+      { absen: 7,  namaLengkap: "Siswa 7",  namaPanggilan: "Panggilan 7",  fotoKelas10: "img/siswa-7-10.jpg",  fotoKelas11: "img/siswa-7-11.jpg",  kutipan: "Kutipan siswa ke-7." },
+      { absen: 8,  namaLengkap: "Siswa 8",  namaPanggilan: "Panggilan 8",  fotoKelas10: "img/siswa-8-10.jpg",  fotoKelas11: "img/siswa-8-11.jpg",  kutipan: "Kutipan siswa ke-8." },
+      { absen: 9,  namaLengkap: "Siswa 9",  namaPanggilan: "Panggilan 9",  fotoKelas10: "img/siswa-9-10.jpg",  fotoKelas11: "img/siswa-9-11.jpg",  kutipan: "Kutipan siswa ke-9." },
+      { absen: 10, namaLengkap: "Siswa 10", namaPanggilan: "Panggilan 10", fotoKelas10: "img/siswa-10-10.jpg", fotoKelas11: "img/siswa-10-11.jpg", kutipan: "Kutipan siswa ke-10." },
+      { absen: 11, namaLengkap: "Siswa 11", namaPanggilan: "Panggilan 11", fotoKelas10: "img/siswa-11-10.jpg", fotoKelas11: "img/siswa-11-11.jpg", kutipan: "Kutipan siswa ke-11." },
+      { absen: 12, namaLengkap: "Siswa 12", namaPanggilan: "Panggilan 12", fotoKelas10: "img/siswa-12-10.jpg", fotoKelas11: "img/siswa-12-11.jpg", kutipan: "Kutipan siswa ke-12." },
+      { absen: 13, namaLengkap: "Siswa 13", namaPanggilan: "Panggilan 13", fotoKelas10: "img/siswa-13-10.jpg", fotoKelas11: "img/siswa-13-11.jpg", kutipan: "Kutipan siswa ke-13." },
+      { absen: 14, namaLengkap: "Siswa 14", namaPanggilan: "Panggilan 14", fotoKelas10: "img/siswa-14-10.jpg", fotoKelas11: "img/siswa-14-11.jpg", kutipan: "Kutipan siswa ke-14." },
+      { absen: 15, namaLengkap: "Siswa 15", namaPanggilan: "Panggilan 15", fotoKelas10: "img/siswa-15-10.jpg", fotoKelas11: "img/siswa-15-11.jpg", kutipan: "Kutipan siswa ke-15." },
+      { absen: 16, namaLengkap: "Siswa 16", namaPanggilan: "Panggilan 16", fotoKelas10: "img/siswa-16-10.jpg", fotoKelas11: "img/siswa-16-11.jpg", kutipan: "Kutipan siswa ke-16." },
+      { absen: 17, namaLengkap: "Siswa 17", namaPanggilan: "Panggilan 17", fotoKelas10: "img/siswa-17-10.jpg", fotoKelas11: "img/siswa-17-11.jpg", kutipan: "Kutipan siswa ke-17." },
+      { absen: 18, namaLengkap: "Siswa 18", namaPanggilan: "Panggilan 18", fotoKelas10: "img/siswa-18-10.jpg", fotoKelas11: "img/siswa-18-11.jpg", kutipan: "Kutipan siswa ke-18." },
+      { absen: 19, namaLengkap: "Siswa 19", namaPanggilan: "Panggilan 19", fotoKelas10: "img/siswa-19-10.jpg", fotoKelas11: "img/siswa-19-11.jpg", kutipan: "Kutipan siswa ke-19." },
+      { absen: 20, namaLengkap: "Siswa 20", namaPanggilan: "Panggilan 20", fotoKelas10: "img/siswa-20-10.jpg", fotoKelas11: "img/siswa-20-11.jpg", kutipan: "Kutipan siswa ke-20." },
+      { absen: 21, namaLengkap: "Siswa 21", namaPanggilan: "Panggilan 21", fotoKelas10: "img/siswa-21-10.jpg", fotoKelas11: "img/siswa-21-11.jpg", kutipan: "Kutipan siswa ke-21." },
+      { absen: 22, namaLengkap: "Siswa 22", namaPanggilan: "Panggilan 22", fotoKelas10: "img/siswa-22-10.jpg", fotoKelas11: "img/siswa-22-11.jpg", kutipan: "Kutipan siswa ke-22." },
+      { absen: 23, namaLengkap: "Siswa 23", namaPanggilan: "Panggilan 23", fotoKelas10: "img/siswa-23-10.jpg", fotoKelas11: "img/siswa-23-11.jpg", kutipan: "Kutipan siswa ke-23." },
+      { absen: 24, namaLengkap: "Siswa 24", namaPanggilan: "Panggilan 24", fotoKelas10: "img/siswa-24-10.jpg", fotoKelas11: "img/siswa-24-11.jpg", kutipan: "Kutipan siswa ke-24." },
+      { absen: 25, namaLengkap: "Siswa 25", namaPanggilan: "Panggilan 25", fotoKelas10: "img/siswa-25-10.jpg", fotoKelas11: "img/siswa-25-11.jpg", kutipan: "Kutipan siswa ke-25." },
+      { absen: 26, namaLengkap: "Siswa 26", namaPanggilan: "Panggilan 26", fotoKelas10: "img/siswa-26-10.jpg", fotoKelas11: "img/siswa-26-11.jpg", kutipan: "Kutipan siswa ke-26." },
+      { absen: 27, namaLengkap: "Siswa 27", namaPanggilan: "Panggilan 27", fotoKelas10: "img/siswa-27-10.jpg", fotoKelas11: "img/siswa-27-11.jpg", kutipan: "Kutipan siswa ke-27." },
+      { absen: 28, namaLengkap: "Siswa 28", namaPanggilan: "Panggilan 28", fotoKelas10: "img/siswa-28-10.jpg", fotoKelas11: "img/siswa-28-11.jpg", kutipan: "Kutipan siswa ke-28." },
+      { absen: 29, namaLengkap: "Siswa 29", namaPanggilan: "Panggilan 29", fotoKelas10: "img/siswa-29-10.jpg", fotoKelas11: "img/siswa-29-11.jpg", kutipan: "Kutipan siswa ke-29." },
+      { absen: 30, namaLengkap: "Siswa 30", namaPanggilan: "Panggilan 30", fotoKelas10: "img/siswa-30-10.jpg", fotoKelas11: "img/siswa-30-11.jpg", kutipan: "Kutipan siswa ke-30." },
+      { absen: 31, namaLengkap: "Siswa 31", namaPanggilan: "Panggilan 31", fotoKelas10: "img/siswa-31-10.jpg", fotoKelas11: "img/siswa-31-11.jpg", kutipan: "Kutipan siswa ke-31." },
+      { absen: 32, namaLengkap: "Siswa 32", namaPanggilan: "Panggilan 32", fotoKelas10: "img/siswa-32-10.jpg", fotoKelas11: "img/siswa-32-11.jpg", kutipan: "Kutipan siswa ke-32." },
+      { absen: 33, namaLengkap: "Siswa 33", namaPanggilan: "Panggilan 33", fotoKelas10: "img/siswa-33-10.jpg", fotoKelas11: "img/siswa-33-11.jpg", kutipan: "Kutipan siswa ke-33." }
+    ];
+
+    // ambilInisial: mengambil inisial nama (maks 2 huruf kapital) untuk placeholder foto
+    function ambilInisial(namaLengkap) {
+      if (!namaLengkap || namaLengkap.trim().length === 0) return '?';
+      const inisial = namaLengkap
+        .trim()
+        .split(/\s+/)
+        .map(function(kata) { return kata[0]; })
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+      return inisial || '?';
+    }
+
+    // gantiPlaceholder: mengganti img yang gagal dimuat dengan div berisi inisial nama
+    function gantiPlaceholder(imgElement, namaLengkap) {
+      const inisial = namaLengkap
+        ? namaLengkap
+            .split(' ')
+            .map(function (kata) { return kata[0]; })
+            .join('')
+            .toUpperCase()
+            .slice(0, 2) || '?'
+        : '?';
+      const placeholder = document.createElement('div');
+      placeholder.className = 'foto-placeholder';
+      placeholder.textContent = inisial;
+      imgElement.replaceWith(placeholder);
+    }
+
+    // validasiDataSiswa: memeriksa jumlah data sebelum render; tampilkan warning jika tidak 33
+    function validasiDataSiswa(data) {
+      if (data.length !== 33) {
+        console.warn('[Journey] Jumlah data siswa tidak sesuai: ditemukan ' + data.length + ', diharapkan 33.');
+        const studentGrid = document.getElementById('student-grid');
+        if (studentGrid) {
+          studentGrid.innerHTML = '<p class="error-data">Data siswa tidak lengkap. Harap periksa array studentsData.</p>';
+        }
+        return false;
+      }
+      return true;
+    }
+
+    // potongKutipan: memotong string kutipan menjadi maksimal N karakter dengan elipsis
+    function potongKutipan(teks, maks) {
+      if (!teks) return '';
+      if (teks.length <= maks) return teks;
+      return teks.slice(0, maks) + '…';
+    }
+
+    // escapeHtml: mengubah karakter HTML khusus menjadi entitas agar aman dimasukkan ke innerHTML
+    function escapeHtml(teks) {
+      if (!teks) return '';
+      return teks
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // renderStudents: membuat HTML Student_Card dari array dan meng-inject ke #student-grid
+    function renderStudents(students) {
+      const studentGrid = document.getElementById('student-grid');
+      if (!studentGrid) return;
+
+      if (students.length === 0) {
+        studentGrid.innerHTML = '<p class="pesan-kosong">Siswa tidak ditemukan.</p>';
+        return;
+      }
+
+      const html = students.map(function (student) {
+        const namaEscapedAttr  = escapeHtml(student.namaLengkap);
+        const namaEscapedJs    = (student.namaLengkap || '').replace(/'/g, "\\'");
+        const kutipanDipotong  = escapeHtml(potongKutipan(student.kutipan, 150));
+        const namaPanggilan    = escapeHtml(student.namaPanggilan);
+
+        return (
+          '<article class="student-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">' +
+            '<div class="foto-wrapper grid grid-cols-2 gap-1 p-2">' +
+              '<img src="' + escapeHtml(student.fotoKelas10) + '"' +
+                   ' alt="' + namaEscapedAttr + '"' +
+                   ' class="w-full h-32 object-cover rounded-lg"' +
+                   ' onerror="gantiPlaceholder(this, \'' + namaEscapedJs + '\')">' +
+              '<img src="' + escapeHtml(student.fotoKelas11) + '"' +
+                   ' alt="' + namaEscapedAttr + '"' +
+                   ' class="w-full h-32 object-cover rounded-lg"' +
+                   ' onerror="gantiPlaceholder(this, \'' + namaEscapedJs + '\')">' +
+            '</div>' +
+            '<div class="info p-4 flex flex-col gap-1 flex-1">' +
+              '<span class="absen text-xs font-bold text-slate-400">#' + student.absen + '</span>' +
+              '<h3 class="nama-lengkap text-sm font-bold text-slate-800 leading-tight">' + namaEscapedAttr + '</h3>' +
+              '<p class="nama-panggilan text-xs text-slate-500 italic">"' + namaPanggilan + '"</p>' +
+              '<blockquote class="kutipan text-xs text-slate-600 italic border-l-2 border-slate-200 pl-2 mt-1">' + kutipanDipotong + '</blockquote>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+
+      studentGrid.innerHTML = html;
+    }
+
+    // setupSearch: event listener real-time pada search bar; memfilter dan me-render ulang kartu siswa
+    function setupSearch() {
+      const searchBar = document.getElementById('search-bar');
+      if (!searchBar) return;
+      searchBar.addEventListener('input', function() {
+        const hasil = filterStudents(studentsData, searchBar.value);
+        renderStudents(hasil);
+      });
+    }
+
+    // filterStudents: memfilter array siswa berdasarkan nama (case-insensitive); query kosong mengembalikan semua data
+    function filterStudents(students, query) {
+      const trimmed = query ? query.trim() : '';
+      if (trimmed === '') return students;
+      const lower = trimmed.toLowerCase();
+      return students.filter(function(student) {
+        return (student.namaLengkap || '').toLowerCase().includes(lower) ||
+               (student.namaPanggilan || '').toLowerCase().includes(lower);
+      });
+    }
+
+    // scrollKeSection: smooth scroll ke seksi target; menampilkan error konsol jika target tidak ditemukan
+    function scrollKeSection(sectionId) {
+      const target = document.getElementById(sectionId);
+      if (!target) {
+        console.error('[Journey] Section "' + sectionId + '" tidak ditemukan');
+        return;
+      }
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Ganti img wali kelas yang memiliki src kosong langsung dengan placeholder inisial
+      document.querySelectorAll('#wali-kelas img').forEach(function (img) {
+        if (!img.src || img.getAttribute('src') === '') {
+          const nama = img.getAttribute('alt') || '';
+          gantiPlaceholder(img, nama);
+        }
+      });
+
+      const btnKelas10 = document.getElementById('btn-kelas-10');
+      const btnKelas11 = document.getElementById('btn-kelas-11');
+      if (btnKelas10) btnKelas10.addEventListener('click', function () { scrollKeSection('kelas-10'); });
+      if (btnKelas11) btnKelas11.addEventListener('click', function () { scrollKeSection('kelas-11'); });
+    });
+
+    // setupTabs: mengelola state tab aktif; klik tab yang sudah aktif tidak mengubah state apapun
+    function setupTabs() {
+      const tombolTab = document.querySelectorAll('[data-tab]');
+      const panelTab = document.querySelectorAll('.tab-panel');
+
+      tombolTab.forEach(function(tombol) {
+        tombol.addEventListener('click', function() {
+          // Idempoten: jika tab yang diklik sudah aktif, tidak melakukan apapun
+          if (tombol.classList.contains('tab-aktif')) return;
+
+          const targetTab = tombol.getAttribute('data-tab');
+
+          // Hapus state aktif dari semua tombol
+          tombolTab.forEach(function(btn) {
+            btn.classList.remove('tab-aktif');
+            btn.classList.remove('border-teal-500', 'text-teal-700', 'border-indigo-500', 'text-indigo-700');
+            btn.classList.add('border-transparent', 'text-slate-500');
+          });
+
+          // Sembunyikan semua panel
+          panelTab.forEach(function(panel) {
+            panel.classList.add('hidden');
+          });
+
+          // Aktifkan tombol yang diklik
+          tombol.classList.add('tab-aktif');
+          tombol.classList.remove('border-transparent', 'text-slate-500');
+          if (targetTab === 'kelas-10') {
+            tombol.classList.add('border-teal-500', 'text-teal-700');
+          } else {
+            tombol.classList.add('border-indigo-500', 'text-indigo-700');
+          }
+
+          // Tampilkan panel target
+          const panelTarget = document.getElementById('panel-' + targetTab);
+          if (panelTarget) panelTarget.classList.remove('hidden');
+        });
+      });
+    }
+
+    // setupGallery: mengelola toggle album dan mendelegasikan klik thumbnail ke openModal
+    function setupGallery() {
+      const tombolAlbum = document.querySelectorAll('[data-album]');
+      const panelAlbum = [
+        document.getElementById('album-10'),
+        document.getElementById('album-11')
+      ].filter(Boolean);
+
+      // Toggle antar album
+      tombolAlbum.forEach(function(tombol) {
+        tombol.addEventListener('click', function() {
+          if (tombol.classList.contains('album-aktif')) return;
+
+          const targetAlbum = tombol.getAttribute('data-album');
+
+          // Reset semua tombol album
+          tombolAlbum.forEach(function(btn) {
+            btn.classList.remove('album-aktif', 'bg-teal-600', 'text-white', 'bg-indigo-600');
+            btn.classList.add('bg-slate-200', 'text-slate-600');
+          });
+
+          // Sembunyikan semua panel album
+          panelAlbum.forEach(function(panel) {
+            panel.classList.add('hidden');
+          });
+
+          // Aktifkan tombol dan panel target
+          tombol.classList.add('album-aktif');
+          tombol.classList.remove('bg-slate-200', 'text-slate-600');
+          if (targetAlbum === 'album-10') {
+            tombol.classList.add('bg-teal-600', 'text-white');
+          } else {
+            tombol.classList.add('bg-indigo-600', 'text-white');
+          }
+
+          const panelTarget = document.getElementById(targetAlbum);
+          if (panelTarget) panelTarget.classList.remove('hidden');
+        });
+      });
+
+      // Delegasi klik thumbnail ke openModal
+      document.querySelectorAll('#galeri .foto-item').forEach(function(fotoItem) {
+        fotoItem.addEventListener('click', function() {
+          const img = fotoItem.querySelector('img');
+          if (img) openModal(img.src, img.alt);
+        });
+      });
+    }
+
+    // openModal: membuka modal lightbox, mengunci scroll halaman, dan fokus ke tombol tutup untuk aksesibilitas
+    function openModal(src, alt) {
+      const modalOverlay  = document.getElementById('modal-overlay');
+      const modalGambar   = document.getElementById('modal-gambar');
+      const modalError    = document.getElementById('modal-pesan-error');
+      const tombolTutup   = document.getElementById('tombol-tutup');
+
+      if (!modalOverlay || !modalGambar) return;
+
+      // Reset error state setiap kali modal dibuka
+      modalGambar.style.display = '';
+      modalGambar.classList.remove('hidden');
+      if (modalError) {
+        modalError.textContent = '';
+        modalError.classList.add('hidden');
+      }
+
+      // Set src dan alt gambar
+      modalGambar.src = src;
+      modalGambar.alt = alt || '';
+
+      // Handler error foto gagal dimuat
+      modalGambar.onerror = function () {
+        modalGambar.style.display = 'none';
+        if (modalError) {
+          modalError.textContent = 'Foto tidak dapat ditampilkan.';
+          modalError.classList.remove('hidden');
+        }
+      };
+
+      // Tampilkan overlay
+      modalOverlay.classList.remove('hidden');
+
+      // Kunci scroll halaman
+      document.body.style.overflow = 'hidden';
+
+      // Fokus ke tombol tutup untuk aksesibilitas
+      if (tombolTutup) tombolTutup.focus();
+    }
+
+    // tutupModal: menutup modal, merestorasi scroll halaman, dan membersihkan src gambar
+    function tutupModal() {
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalGambar = document.getElementById('modal-gambar');
+    const modalPesanError = document.getElementById('modal-pesan-error');
+
+    if (modalOverlay) {
+        modalOverlay.classList.add('hidden');
+    }
+
+    document.body.style.overflow = ""; 
+
+    if (modalGambar !== null && typeof modalGambar !== 'undefined') {
+        modalGambar.src = "";
+    }
+
+    if (modalPesanError) {
+        modalPesanError.classList.add('hidden');
+    }
+}
+
+    // setupNavMobile: toggle menu hamburger pada layar mobile
+    function setupNavMobile() {
+      const tombolHamburger = document.getElementById('tombol-hamburger');
+      const navMenuMobile = document.getElementById('nav-menu-mobile');
+      tombolHamburger.addEventListener('click', function () {
+        navMenuMobile.classList.toggle('hidden');
+      });
+    }
+
+// setupModal: memasang event listener untuk tutup modal via tombol, overlay, dan tombol Escape
+function setupModal() {
+    const tombolTutup = document.getElementById('tombol-tutup');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalContainer = document.getElementById('modal-container');
+    const modalGambar = document.getElementById('modal-gambar');
+    const modalPesanError = document.getElementById('modal-pesan-error'); // Pastikan ID ini juga ada di HTML Anda
+
+    // KLIK #tombol-tutup -> tutupModal()
+    if (tombolTutup) {
+        tombolTutup.addEventListener('click', tutupModal);
+    }
+
+    // KLIK 'modal overlay' (kecuali klik di dalam 'modal-container') -> tutupModal()
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (modalContainer && !modalContainer.contains(e.target)) {
+                tutupModal();
+            }
+        });
+    }
+
+    // Tekan tombol Escape -> tutupModal()
+    document.addEventListener('keydown', (e) => {
+        const modalOverlayCheck = document.getElementById('modal-overlay');
+        if (e.key === 'Escape' && modalOverlayCheck && !modalOverlayCheck.classList.contains('hidden')) {
+            tutupModal();
+        }
+    });
+
+    // #modal-gambar onerror -> sembunyikan gambar, tampilkan pesan error
+    if (modalGambar && modalPesanError) {
+        modalGambar.addEventListener('error', () => {
+            modalGambar.classList.add('hidden'); 
+            modalPesanError.classList.remove('hidden'); 
+            modalPesanError.textContent = "Foto tidak dapat ditampilkan.";
+        });
+    }
+}
+
+// Panggil fungsi setup saat halaman selesai dimuat
+document.addEventListener('DOMContentLoaded', setupModal);
+
+// DOMContentLoaded: entry point - memanggil validasi data dan semua fungsi setup setelah DOM siap
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Validasi data siswa terlebih dahulu
+    if (typeof validateDataSiswa === 'function' && typeof studentsData !== 'undefined') {
+        validateDataSiswa(studentsData);
+    }
+    
+    // 2. Jika valid, panggil semua fungsi setup secara berurutan
+    if (typeof renderStudents === 'function' && typeof studentsData !== 'undefined') {
+        renderStudents(studentsData);
+    }
+    if (typeof setupSearch === 'function') {
+        setupSearch();
+    }
+    if (typeof setupTabs === 'function') {
+        setupTabs();
+    }
+    if (typeof setupGallery === 'function') {
+        setupGallery();
+    }
+    if (typeof setupModal === 'function') {
+        setupModal();
+    }
+    if (typeof setupSmoothScroll === 'function') {
+        setupSmoothScroll();
+    }
+});
+
+  </script>
+</body>
+</html>
