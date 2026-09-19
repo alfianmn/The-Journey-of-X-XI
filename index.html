@@ -914,12 +914,24 @@
 
     // setupNavMobile: toggle menu hamburger pada layar mobile
     function setupNavMobile() {
-      const tombolHamburger = document.getElementById('tombol-hamburger');
-      const navMenuMobile = document.getElementById('nav-menu-mobile');
-      tombolHamburger.addEventListener('click', function () {
-        navMenuMobile.classList.toggle('hidden');
-      });
+    // Mencari tombol hamburger berdasarkan ID atau class yang umum digunakan AI Cursor
+    const tombolHamburger = document.getElementById('tombol-hamburger') || document.querySelector('.hamburger') || document.getElementById('modal-hamburger');
+    const menuMobile = document.getElementById('nav-menu-mobile') || document.querySelector('nav ul') || document.getElementById('nav-links');
+
+    if (tombolHamburger && menuMobile) {
+        tombolHamburger.addEventListener('click', function(e) {
+            e.stopPropagation(); // Mencegah bentrok klik dengan elemen lain
+            menuMobile.classList.toggle('hidden');
+        });
+
+        // Menutup menu secara otomatis jika pengguna mengeklik area di luar menu
+        document.addEventListener('click', function(e) {
+            if (!menuMobile.contains(e.target) && !tombolHamburger.contains(e.target)) {
+                menuMobile.classList.add('hidden');
+            }
+        });
     }
+}
 
 // setupModal: memasang event listener untuk tutup modal via tombol, overlay, dan tombol Escape
 function setupModal() {
