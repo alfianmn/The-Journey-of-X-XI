@@ -362,9 +362,8 @@
                   <td class="border border-slate-200 px-3 py-2">Senin</td>
                   <td class="border border-slate-200 px-3 py-2">Bisnis Online</td>
                   <td class="border border-slate-200 px-3 py-2">Bahasa Indonesia</td>
-                  <td class="border border-slate-200 px-3 py-2">Bahasa Inggris</td>
-                  <td class="border border-slate-200 px-3 py-2">PPKn</td>
-                  <td class="border border-slate-200 px-3 py-2">Sejarah</td>
+                  <td class="border border-slate-200 px-3 py-2">Bahasa Inggris, PPKn</td>
+                  <td class="border border-slate-200 px-3 py-2">PAI</td>
                 </tr>
                 <tr class="bg-slate-50">
                   <td class="border border-slate-200 px-3 py-2">Selasa</td>
@@ -586,7 +585,7 @@
       { absen: 3,  namaLengkap: "Siswa 3",  namaPanggilan: "Panggilan 3",  fotoKelas10: "img/siswa-3-10.jpg",  fotoKelas11: "img/siswa-3-11.jpg",  kutipan: "Kutipan siswa ke-3." },
       { absen: 4,  namaLengkap: "Siswa 4",  namaPanggilan: "Panggilan 4",  fotoKelas10: "img/siswa-4-10.jpg",  fotoKelas11: "img/siswa-4-11.jpg",  kutipan: "Kutipan siswa ke-4." },
       { absen: 5,  namaLengkap: "Siswa 5",  namaPanggilan: "Panggilan 5",  fotoKelas10: "img/siswa-5-10.jpg",  fotoKelas11: "img/siswa-5-11.jpg",  kutipan: "Kutipan siswa ke-5." },
-      { absen: 6,  namaLengkap: "Alfian Mahadika Nadhif",  namaPanggilan: "Al / Fian",  fotoKelas10: "https://googleusercontent.com",  fotoKelas11: "https://googleusercontent.com",  kutipan: "Resiko terbesar adalah tidak mengambil resiko apapun." },
+      { absen: 6,  namaLengkap: "Alfian Mahadika Nadhif",  namaPanggilan: "Al / Fian",  fotoKelas10: "images/Alfian1.jpeg",  fotoKelas11: "images/Alfian2.jpeg",  kutipan: "Resiko terbesar adalah tidak mengambil resiko apapun." },
       { absen: 7,  namaLengkap: "Siswa 7",  namaPanggilan: "Panggilan 7",  fotoKelas10: "img/siswa-7-10.jpg",  fotoKelas11: "img/siswa-7-11.jpg",  kutipan: "Kutipan siswa ke-7." },
       { absen: 8,  namaLengkap: "Siswa 8",  namaPanggilan: "Panggilan 8",  fotoKelas10: "img/siswa-8-10.jpg",  fotoKelas11: "img/siswa-8-11.jpg",  kutipan: "Kutipan siswa ke-8." },
       { absen: 9,  namaLengkap: "Siswa 9",  namaPanggilan: "Panggilan 9",  fotoKelas10: "img/siswa-9-10.jpg",  fotoKelas11: "img/siswa-9-11.jpg",  kutipan: "Kutipan siswa ke-9." },
@@ -697,11 +696,11 @@
             '<div class="foto-wrapper grid grid-cols-2 gap-1 p-2">' +
               '<img src="' + escapeHtml(student.fotoKelas10) + '"' +
                    ' alt="' + namaEscapedAttr + '"' +
-                   ' class="w-full h-32 object-cover rounded-lg"' +
+                   ' class="w-full h-32 object-cover rounded-full mx-auto"' +
                    ' onerror="gantiPlaceholder(this, \'' + namaEscapedJs + '\')">' +
               '<img src="' + escapeHtml(student.fotoKelas11) + '"' +
                    ' alt="' + namaEscapedAttr + '"' +
-                   ' class="w-full h-32 object-cover rounded-lg"' +
+                   ' class="w-full h-32 object-cover rounded-full mx-auto"' +
                    ' onerror="gantiPlaceholder(this, \'' + namaEscapedJs + '\')">' +
             '</div>' +
             '<div class="info p-4 flex flex-col gap-1 flex-1">' +
